@@ -18,8 +18,8 @@
 1. 确保系统已安装 `curl` 和 `awk`
 2. 下载脚本：
 ```bash
-wget https://raw.githubusercontent.com/your-repo/GEOIP/update_GEOIP.sh
-chmod +x update_GEOIP.sh
+wget https://raw.githubusercontent.com/0x5826/GEOIP-LIST/geoip-list.sh
+chmod +x geoip-list.sh
 ```
 
 ## 使用方法
@@ -27,7 +27,7 @@ chmod +x update_GEOIP.sh
 ### 基本用法
 
 ```bash
-./update_GEOIP.sh -c <国家代码> -t <IP类型>
+./geoip-list.sh -c <国家代码> -t <IP类型>
 ```
 
 ### 参数说明
@@ -74,17 +74,17 @@ chmod +x update_GEOIP.sh
 
 1. 下载中国的IPv4地址列表：
 ```bash
-./update_GEOIP.sh -c CN -t 4
+./geoip-list.sh -c CN -t 4
 ```
 
 2. 生成美国的IPv6地址ipset格式：
 ```bash
-./update_GEOIP.sh -c US -t 6 -f ipset -o usa_ipv6.ipset
+./geoip-list.sh -c US -t 6 -f ipset -o usa_ipv6.ipset
 ```
 
 3. 生成巴西的IPv4地址nftables配置：
 ```bash
-./update_GEOIP.sh -c BR -t 4 -f nft -o brazil_ipv4.nft
+./geoip-list.sh -c BR -t 4 -f nft -o brazil_ipv4.nft
 ```
 
 ## 数据源
@@ -108,7 +108,7 @@ chmod +x update_GEOIP.sh
 1. **如何更新已生成的ipset？**
    ```bash
    ipset destroy CN_ipv4
-   ./update_GEOIP.sh -c CN -t 4 -f ipset | ipset restore
+   ./geoip-list.sh -c CN -t 4 -f ipset | ipset restore
    ```
 
 2. **如何应用nftables配置？**
